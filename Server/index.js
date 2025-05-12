@@ -10,7 +10,8 @@ const depositModel = require("./Models/Deposit");
 const app = express();
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL],
+    // origin: process.env.FRONTEND_URL,
+    origin: "https://expensetracker-clientside.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
@@ -171,4 +172,4 @@ app.get("/withdraw", async (req, res) => {
 // app.listen(PORT, () => {
 //   console.log(`server is running on port ${PORT}`);
 // });
-module.exports = app; // <-- Add this line
+module.exports = app;
