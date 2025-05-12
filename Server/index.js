@@ -167,7 +167,8 @@ app.get("/withdraw", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`server is running on port ${PORT}`);
-});
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   console.log(`server is running on port ${PORT}`);
+// });
+module.exports = app; // <-- Add this line
