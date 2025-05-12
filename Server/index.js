@@ -24,6 +24,10 @@ mongoose
   .then(() => console.log("Mongo db connected"))
   .catch((error) => console.log(error));
 
+app.get("/", (req, res) => {
+  res.send("Backend API is running.");
+});
+
 app.post("/Signup", async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
