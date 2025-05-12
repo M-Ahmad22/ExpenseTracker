@@ -1,0 +1,175 @@
+* {
+  padding: 0%;
+  margin: 0%;
+  border: 0%;
+  box-sizing: border-box;
+}
+.MainCon {
+  width: 100%;
+  height: 100vh;
+  background-color: #21212d;
+  background-color: #201f1ea6;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  background-image: url(../../assets/3d-mosque-white-gold-islamic-perspective-free-png.webp);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: contain;
+  background-size: auto;
+  gap: 30;
+  position: relative;
+}
+.heroCon {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.textCon {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.textCon h1 {
+  color: #b8a38f;
+  color: #c7c5c4;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 50px;
+  font-weight: 900;
+}
+.formCon {
+  width: 50%;
+  height: 65%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  backdrop-filter: blur(25px) saturate(169%);
+  -webkit-backdrop-filter: blur(25px) saturate(169%);
+  background-color: rgba(199, 197, 196, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}
+
+.signupLoginLink {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+.signupLoginLink button {
+  color: #3b82f6;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.signupLoginLink button:hover {
+  text-decoration: underline;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+@media (max-width: 1024px) {
+  .heroCon {
+    width: 70%;
+    right: 0;
+  }
+  .formCon {
+    width: 70%;
+    height: 60%;
+  }
+  .textCon h1 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroCon {
+    width: 100%;
+    right: 0;
+  }
+  .formCon {
+    width: 60%;
+    height: 55%;
+
+    backdrop-filter: blur(15px) saturate(169%);
+    -webkit-backdrop-filter: blur(25px) saturate(169%);
+    background-color: rgba(199, 197, 196, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+  }
+  .textCon h1 {
+    font-size: 38px;
+    margin-bottom: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .MainCon {
+    background-size: contain;
+  }
+  .heroCon {
+    position: static;
+    width: 100%;
+    padding: 20px 10px;
+    gap: 15px;
+  }
+  .formCon {
+    width: 100%;
+    height: auto;
+    padding: 20px 10px;
+    border-radius: 0;
+
+    backdrop-filter: blur(2px) saturate(169%);
+    -webkit-backdrop-filter: blur(25px) saturate(169%);
+    background-color: rgba(199, 197, 196, 0.75);
+    border-radius: 5px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    margin-top: 140px;
+  }
+  .textCon h1 {
+    font-size: 38px;
+    margin-bottom: 120px;
+  }
+}
+
+@media (max-width: 320px) {
+  .MainCon {
+    background-size: contain;
+  }
+  .textCon h1 {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+  .formCon {
+    height: 80%;
+    width: 100%;
+    padding: 15px 8px;
+    margin-top: 20px;
+
+    gap: 0px;
+  }
+  .signupLoginLink {
+    font-size: 0.5rem;
+    margin-top: 0px;
+  }
+  .signupLoginLink button {
+    font-size: 0.55rem;
+  }
+}

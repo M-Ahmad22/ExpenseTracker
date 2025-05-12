@@ -1,0 +1,26 @@
+.Toastify__toast-container {
+  z-index: 999999999999999999 !important;
+}
+
+.Toastify__toast {
+  font-size: 1rem;
+  pointer-events: auto;
+}
+body.Toastify__toast-open {
+  overflow-y: hidden !important;
+}
+
+body.toast-shown {
+  overflow-y: hidden !important;
+}
+.Toastify__toast-container {
+  pointer-events: none;
+}
+.Toastify__toast {
+  pointer-events: auto;
+}
+
+.Toastify__toast-container--bottom-right {
+  bottom: 1.5rem;
+  right: 1.5rem;
+}

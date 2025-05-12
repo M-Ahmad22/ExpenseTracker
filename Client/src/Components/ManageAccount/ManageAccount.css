@@ -1,0 +1,223 @@
+.manage-account-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  /* background-color: #333; */
+  height: 70vh;
+  width: 90%;
+  gap: 250px;
+}
+.AdminImgCom {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #103a63;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* width: 100%; */
+  height: 100%;
+  border-radius: 50%;
+  /* background-color: #007bff; */
+  /* color: #fff; */
+  font-size: 1.2 rem;
+  gap: 25px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  width: 35%;
+  height: 70%;
+}
+.AdminImgCom img {
+  height: 80%;
+}
+
+.manage-account-container h1 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.manage-account-card {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 35%;
+  height: 80%;
+}
+
+.manage-account-card h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #103a63;
+  margin-bottom: 40px;
+}
+
+.manage-account-form label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.manage-account-form input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 5px;
+  border: 1.5px solid #007bff;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.manage-account-form input:focus {
+  border-color: #0056b3;
+}
+
+.manage-account-button {
+  width: 100%;
+  padding: 10px 0;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 40px;
+  transition: background-color 0.3s ease;
+}
+
+.manage-account-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive styles for ManageAccount */
+
+/* Tablets and small desktops */
+@media (max-width: 1024px) {
+  .manage-account-container {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 40px;
+    padding: 30px 20px;
+    width: 80%;
+  }
+
+  .AdminImgCom,
+  .manage-account-card {
+    width: 80%;
+    height: auto;
+  }
+
+  .AdminImgCom img {
+    height: 150px;
+    width: auto;
+  }
+}
+
+/* Small tablets and large phones */
+@media (max-width: 768px) {
+  .AdminImgCom {
+    font-size: 1rem;
+    gap: 20px;
+    width: 90%;
+  }
+
+  .AdminImgCom img {
+    height: 120px;
+  }
+
+  .manage-account-card {
+    width: 90%;
+    padding: 25px 30px;
+  }
+
+  .manage-account-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+  .manage-account-form label {
+    font-size: 0.95rem;
+  }
+
+  .manage-account-form input {
+    font-size: 0.95rem;
+    padding: 7px 8px;
+  }
+
+  .manage-account-button {
+    font-size: 0.95rem;
+    padding: 9px 0;
+    margin-top: 30px;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  .AdminImgCom {
+    font-size: 0.9rem;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .AdminImgCom img {
+    height: 100px;
+  }
+
+  .manage-account-card {
+    width: 100%;
+    padding: 20px 20px;
+  }
+
+  .manage-account-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+  }
+
+  .manage-account-form label {
+    font-size: 0.9rem;
+  }
+
+  .manage-account-form input {
+    font-size: 0.9rem;
+    padding: 6px 7px;
+  }
+
+  .manage-account-button {
+    font-size: 0.9rem;
+    padding: 8px 0;
+    margin-top: 25px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 320px) {
+  .AdminImgCom img {
+    height: 80px;
+  }
+
+  .manage-account-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  .manage-account-form label {
+    font-size: 0.85rem;
+  }
+
+  .manage-account-form input {
+    font-size: 0.85rem;
+    padding: 5px 6px;
+  }
+
+  .manage-account-button {
+    font-size: 0.85rem;
+    padding: 7px 0;
+    margin-top: 20px;
+  }
+}

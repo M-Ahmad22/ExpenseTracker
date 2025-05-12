@@ -1,0 +1,37 @@
+.table-wrapper {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 800px;
+  height: 90%;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.donation-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+.donation-table th,
+.donation-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.donation-table th {
+  background-color: #4caf50;
+  background-color: #8ea0b2;
+  color: white;
+}
+
+.donation-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.donation-table tr:hover {
+  background-color: #f1f1f1;
+}

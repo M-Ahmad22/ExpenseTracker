@@ -1,0 +1,341 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout */
+.DashboardCon {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  /* background-color: bisque; */
+  box-sizing: border-box;
+}
+
+.Sidebar {
+  width: 12%;
+  height: 100%;
+  background-color: #103a63;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.CenterCon {
+  width: 88%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  /* background-color: aqua; */
+}
+
+.NavBar {
+  width: 100%;
+  height: 9%;
+  background-color: #dadada;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.NavLogo {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.NavText {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 34px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #103a63;
+  box-sizing: border-box;
+}
+
+.AccountLogout {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #103a63;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.AccountLogout:hover {
+  color: white;
+}
+
+.HomeSection {
+  width: 100%;
+  height: 85%;
+  background-color: #f1f1f1;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.Footer {
+  width: 100%;
+  height: 6%;
+  background-color: #dadada;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DashboardLinks {
+  width: 90%;
+  height: 100%;
+  margin: 10px;
+}
+
+.LinksCon {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 93%;
+  padding: 10px 10px 0 10px;
+  padding-top: 85px;
+  gap: 25px;
+}
+
+.LinksCon a {
+  color: #dadada;
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.LinksCon a:hover {
+  color: #fff;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  background-color: #e03131;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #c92a2a;
+}
+
+/* Sidebar Hamburger Button */
+.SidebarHamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #103a63;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 16px;
+  position: relative; /* relative to NavBar */
+  z-index: 2100;
+}
+
+.SidebarHamburger:hover {
+  color: #0b2a4d;
+}
+
+/* Sidebar Drawer */
+.SidebarDrawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50vw;
+  max-width: 250px;
+  height: 100vh;
+  background: #103a63;
+  color: #dadada;
+  z-index: 2001;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  padding-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.SidebarDrawer.open {
+  transform: translateX(0);
+  pointer-events: auto;
+  opacity: 1;
+}
+
+/* Close button inside drawer */
+.SidebarClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #dadada;
+  cursor: pointer;
+  z-index: 2101;
+}
+
+/* Responsive Styles */
+
+/* Tablets and small desktops */
+@media (max-width: 1024px) {
+  .SidebarHamburger {
+    display: block;
+    margin-left: 30px;
+  }
+  .DashboardCon {
+    flex-direction: column;
+    height: auto;
+  }
+  .CenterCon {
+    width: 100%;
+    height: auto;
+  }
+  .NavBar {
+    height: 60px;
+  }
+  .NavLogo {
+    width: 15%;
+  }
+  .NavText {
+    font-size: 24px;
+  }
+  .AccountLogout {
+    margin-right: 70px;
+    width: auto;
+  }
+  .HomeSection {
+    height: auto;
+    padding: 10px;
+  }
+  .Footer {
+    height: 50px;
+  }
+  .Sidebar {
+    display: none;
+    /* width: 200px; */
+  }
+
+  .TotalAmount h1 {
+    font-size: 23px !important;
+  }
+  .Deposit-Withdraw {
+    padding: 20px 5px !important;
+  }
+}
+
+/* Small tablets and large phones */
+@media (max-width: 768px) {
+  .NavText {
+    font-size: 20px;
+  }
+  .LinksCon a {
+    font-size: 16px;
+  }
+  .logout-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 14px;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  .HomeSection {
+    padding-bottom: 180px !important;
+  }
+  .DashboardCon {
+    flex-direction: column;
+    height: auto;
+  }
+  .CenterCon {
+    width: 100%;
+    height: auto;
+  }
+  .NavBar {
+    height: 55px;
+  }
+  .NavLogo {
+    width: 17%;
+  }
+  .NavText {
+    font-size: 15px;
+    width: 40% !important;
+    margin-left: 10px;
+    /* background-color: #103a63; */
+  }
+  .LinksCon a {
+    font-size: 14px;
+  }
+  .logout-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 12px;
+    margin-left: 15px;
+    margin-right: 0px;
+  }
+  .HomeSection {
+    padding: 5px;
+  }
+  .Footer {
+    height: 40px;
+  }
+  .SidebarHamburger {
+    margin-left: 15px;
+    display: block;
+    /* font: 24px; */
+    margin-top: 4px;
+  }
+
+  .AccountLogout {
+    margin-right: 10px;
+    /* width: auto; */
+  }
+  .TotalAmount h1.TMH1 {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 320px) {
+  .NavText {
+    font-size: 16px;
+  }
+  .LinksCon a {
+    font-size: 12px;
+  }
+  .logout-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 10px;
+  }
+}

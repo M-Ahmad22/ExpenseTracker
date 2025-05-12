@@ -1,0 +1,355 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.HomeCon {
+  width: 100%;
+  height: 100%;
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+}
+.Deposit-Withdraw {
+  width: 98.5%;
+  height: 20%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 10px;
+  backdrop-filter: blur(15px) saturate(0%);
+  -webkit-backdrop-filter: blur(15px) saturate(0%);
+  background-color: rgba(16, 58, 99, 0.44);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}
+.Deposit {
+  width: 30%;
+  height: 90%;
+  /* background-color: bisque; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Deposit button {
+  width: 70%;
+  height: 60%;
+  background-color: #6ab187;
+  background-color: #103a63;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: white;
+}
+.Withdraw button {
+  width: 70%;
+  height: 60%;
+  background-color: #d32d41;
+  background-color: #103a63;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: white;
+}
+.Withdraw {
+  width: 30%;
+  height: 90%;
+  /* background-color: bisque; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.TotalAmount {
+  width: 30%;
+  height: 90%;
+  /* background-color: bisque; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.TotalAmount h1 {
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: #103a63;
+  color: #103a63;
+  color: white;
+}
+.TMH1 {
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.RepStatTransaction {
+  width: 100%;
+  height: 80%;
+  /* background-color: rgb(219, 151, 151); */
+  display: flex;
+  /* flex-direction: column; */
+  gap: 15px;
+}
+.StatReport {
+  width: 50%;
+  height: 100%;
+  /* background-color: rgb(169, 151, 219); */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.GenerateReport {
+  width: 50%;
+  height: 30%;
+  /* background-color: rgb(168, 51, 106); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.GenerateReport button {
+  width: 90%;
+  height: 80%;
+  background-color: #dbae68;
+  background-color: #484848;
+  background-color: #103a63;
+  /* background-color: #a3bff8; */
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #ffffff;
+}
+.GeneralStatistics {
+  width: 95%;
+  height: 60%;
+
+  /* background-color: rgb(151, 219, 151); */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.TransactionTable {
+  width: 50%;
+  height: 100%;
+  /* background-color: rgb(169, 151, 219); */
+  display: flex;
+  flex-direction: column;
+  /* gap: 15px; */
+  /* padding: 10px; */
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+}
+.RecentTransactions {
+  width: 100%;
+  height: 50%;
+  /* background-color: rgb(151, 219, 151); */
+}
+.RecentDonations {
+  width: 100%;
+  height: 50%;
+  /* background-color: rgb(151, 219, 151); */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive adjustments for DashboardHome */
+
+/* Tablets and small desktops */
+@media (max-width: 1024px) {
+  .Deposit-Withdraw {
+    /* flex-direction: column; */
+    height: auto;
+    gap: 10px;
+    margin: 10px 5px;
+  }
+  .Deposit,
+  .Withdraw,
+  .TotalAmount {
+    width: 100%;
+    height: auto;
+  }
+  .Deposit button,
+  .Withdraw button {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+  }
+  .TotalAmount h1.TMH1 {
+    font-size: 22px;
+  }
+  .RepStatTransaction {
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+  }
+  .StatReport,
+  .TransactionTable {
+    margin-top: 100px;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+  }
+  .GenerateReport {
+    /* width: 100%; */
+    height: 150px;
+    margin-left: 20px;
+  }
+  .GenerateReport button {
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    background-color: #0056b3;
+    background-color: #103a63;
+  }
+  .GeneralStatistics {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 15px;
+  }
+  .RecentTransactions,
+  .RecentDonations {
+    height: 600px;
+  }
+}
+
+/* Small tablets and large phones */
+@media (max-width: 768px) {
+  .Deposit-Withdraw {
+    /* flex-direction: column; */
+    height: auto;
+    gap: 10px;
+    margin: 10px px;
+  }
+  .Deposit button,
+  .Withdraw button {
+    font-size: 16px;
+    height: 45px;
+    width: 80%;
+  }
+  .GenerateReport {
+    /* width: 100%; */
+    height: 120px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .GenerateReport button {
+    font-size: 16px;
+  }
+  .TotalAmount h1.TMH1 {
+    font-size: 16px !important;
+    margin-right: 10px;
+  }
+  .GeneralStatistics {
+    height: 250px;
+  }
+  .RecentTransactions,
+  .RecentDonations {
+    height: 480px;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  .Deposit-Withdraw {
+    flex-direction: column;
+    margin: 8px 3px;
+    gap: 8px;
+  }
+  .Deposit button,
+  .Withdraw button {
+    font-size: 14px;
+    height: 40px;
+  }
+  .StatReport {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+  }
+  .RepStatTransaction {
+    gap: 0px;
+    padding: 0px;
+  }
+  .GenerateReport {
+    /* width: 100%; */
+    height: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0px;
+    margin-bottom: 180px;
+  }
+  .GenerateReport button {
+    font-size: 14px;
+  }
+  .TotalAmount h1.TMH1 {
+    font-size: 14px;
+  }
+  .GeneralStatistics {
+    height: 200px;
+  }
+  .RecentTransactions,
+  .RecentDonations {
+    height: 340px;
+  }
+  .GenerateReport button {
+    font-size: 14px;
+  }
+  .TotalAmount h1.TMH1 {
+    font-size: 18px;
+  }
+  .RepStatTransaction {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+  .GeneralStatistics {
+    height: 150px;
+    margin-bottom: 30px;
+  }
+  .RecentTransactions,
+  .RecentDonations {
+    height: 400px;
+    width: 100%;
+  }
+  .TransactionTable {
+    margin-top: 10px;
+    flex-direction: column;
+    /* margin-bottom: 10px; */
+    padding-bottom: 5px;
+  }
+  .Footer {
+    /* margin-top: 180px; */
+    height: 50px;
+  }
+}
+
+/* Extra small phones (down to 320px) */
+@media (max-width: 320px) {
+  .Deposit button,
+  .Withdraw button,
+  .GenerateReport button {
+    font-size: 12px;
+    height: 35px;
+  }
+  .TotalAmount h1.TMH1 {
+    font-size: 16px;
+  }
+  .GeneralStatistics {
+    height: 160px;
+  }
+  .RecentTransactions,
+  .RecentDonations {
+    height: 420px;
+  }
+}
