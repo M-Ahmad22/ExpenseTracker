@@ -8,6 +8,8 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Withdraw = ({ isOpen, onClose }) => {
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const navigate = useNavigate();
 
   const [WithdrawDate, setWithdrawDate] = useState(new Date());
@@ -30,7 +32,7 @@ const Withdraw = ({ isOpen, onClose }) => {
       };
 
       try {
-        const response = await fetch("http://localhost:3000/withdraw", {
+        const response = await fetch(`${API_URL}/withdraw`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -119,7 +121,7 @@ const Withdraw = ({ isOpen, onClose }) => {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/withdraw", {
+      const response = await fetch(`${API_URL}/withdraw`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

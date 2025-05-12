@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./DonationsTable.css";
 
 const DonationsTable = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [donations, setDonations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -9,7 +10,7 @@ const DonationsTable = () => {
   useEffect(() => {
     const fetchDonations = async () => {
       try {
-        const response = await fetch("http://localhost:3000/deposit");
+        const response = await fetch(`${API_URL}/deposit`);
         const data = await response.json();
 
         if (data.success) {

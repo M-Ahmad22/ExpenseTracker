@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Report = ({ isOpen, onClose }) => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const [selectedMonth, setSelectedMonth] = useState("");
   const [filteredExpenses, setFilteredExpenses] = useState([]);
@@ -18,12 +19,12 @@ const Report = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/withdraw")
+      .get(`${API_URL}/withdraw`)
       .then((res) => setAllExpenses(res.data.withdraws || []))
       .catch((err) => console.error("Failed to fetch expenses:", err));
 
     axios
-      .get("http://localhost:3000/deposit")
+      .get(`${API_URL}/deposit`)
       .then((res) => setAllDonations(res.data.deposits || []))
       .catch((err) => console.error("Failed to fetch donations:", err));
   }, []);

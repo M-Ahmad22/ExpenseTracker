@@ -9,6 +9,8 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Deposit = ({ isOpen, onClose }) => {
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const navigate = useNavigate();
 
   const [depositDate, setDepositDate] = useState(new Date());
@@ -26,7 +28,7 @@ const Deposit = ({ isOpen, onClose }) => {
       };
 
       try {
-        const response = await fetch("http://localhost:3000/deposit", {
+        const response = await fetch(`${API_URL}/deposit`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -111,7 +113,7 @@ const Deposit = ({ isOpen, onClose }) => {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/deposit", {
+      const response = await fetch(`${API_URL}/deposit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

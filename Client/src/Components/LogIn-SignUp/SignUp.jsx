@@ -6,6 +6,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Signup = ({ onSignupSuccess }) => {
+  // const API_URL = process.env.REACT_APP_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,15 +17,17 @@ const Signup = ({ onSignupSuccess }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/Signup", {
+      .post(`${API_URL}/Signup`, {
         name,
         email,
         password,
         role: "User",
       })
+
       .then((result) => {
         console.log(result);
         if (result.data.success) {
+          console.log("API URL:", import.meta.env.VITE_API_URL);
           toast.success("User registered successfully!");
           if (onSignupSuccess) onSignupSuccess();
         } else {

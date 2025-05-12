@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./ExpensesTable.css";
 
 const ExpensesTable = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const [expenses, setExpenses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -9,7 +11,7 @@ const ExpensesTable = () => {
   useEffect(() => {
     const fetchExpenses = async () => {
       try {
-        const response = await fetch("http://localhost:3000/withdraw");
+        const response = await fetch(`${API_URL}/withdraw`);
         const data = await response.json();
 
         if (data.success) {

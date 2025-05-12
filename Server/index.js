@@ -3,21 +3,23 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
+require("dotenv").config();
 const authSchema = require("./Models/Auth");
 const withdrawModel = require("./Models/Withdraw");
 const depositModel = require("./Models/Deposit");
-
-const JWT_SECRET = "your_jwt_secret_key_here";
+const app = express();
+app.use(
+  cors({
+    origin: [process.env.FRONTEND_URL],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+app.use(express.json());
+const JWT_SECRET = process.env.JWT_SECRET;
 
 mongoose
-  .connect(
-    "mongodb+srv://MATalogics:ToobaMasjidETDB@expensestrackerdb.qn4lgn4.mongodb.net/MATalogics"
-  )
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("Mongo db connected"))
   .catch((error) => console.log(error));
 
@@ -160,6 +162,7 @@ app.get("/withdraw", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("server is running on port 3000");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`server is running on port ${PORT}`);
 });

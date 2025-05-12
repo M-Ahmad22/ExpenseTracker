@@ -10,6 +10,8 @@ const getAllMonthsOfYear = (year) => {
 };
 
 const ReportChartContainer = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const currentYear = new Date().getFullYear();
   const [year, setYear] = useState(currentYear);
   const [chartData, setChartData] = useState([]);
@@ -20,8 +22,8 @@ const ReportChartContainer = () => {
       setLoading(true);
       try {
         const [withdrawRes, depositRes] = await Promise.all([
-          fetch("http://localhost:3000/withdraw"),
-          fetch("http://localhost:3000/deposit"),
+          fetch(`${API_URL}/withdraw`),
+          fetch(`${API_URL}/deposit`),
         ]);
 
         const withdrawData = await withdrawRes.json();

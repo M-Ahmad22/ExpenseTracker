@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = ({ onToggleForm }) => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("Admin");
@@ -16,7 +17,7 @@ const Login = ({ onToggleForm }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/login", { email, password, role })
+      .post(`${API_URL}/login`, { email, password, role })
       .then((result) => {
         if (result.data.success && role === "Admin") {
           localStorage.setItem("token", result.data.token);
