@@ -190,8 +190,8 @@ const ExpensesTable = () => {
         <Withdraw
           isOpen={modalOpen}
           onClose={handleModalClose}
-          expenseToEdit={editExpense}
-          onSave={handleModalSave}
+          editId={editExpense ? editExpense._id : null} // pass the ID here
+          onSave={handleModalSave} // optional, if you want to handle save callback
         />
       )}
     </div>

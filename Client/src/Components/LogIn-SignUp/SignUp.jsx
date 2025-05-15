@@ -17,7 +17,7 @@ const Signup = ({ onSignupSuccess }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`${API_URL}/Signup`, {
+      .post(`${API_URL}/auth/Signup`, {
         name,
         email,
         password,

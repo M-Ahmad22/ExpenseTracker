@@ -17,7 +17,7 @@ const Login = ({ onToggleForm }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`${API_URL}/login`, { email, password, role })
+      .post(`${API_URL}/auth/Login`, { email, password, role })
       .then((result) => {
         if (result.data.success && role === "Admin") {
           localStorage.setItem("token", result.data.token);

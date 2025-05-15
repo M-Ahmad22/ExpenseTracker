@@ -123,8 +123,8 @@ const DonationsTable = () => {
         <Deposit
           isOpen={modalOpen}
           onClose={handleModalClose}
-          depositToEdit={editDonation}
-          onSave={handleModalSave}
+          editId={editDonation ? editDonation._id : null}
+          onSave={handleModalSave} // optional, if your Deposit component supports it
         />
       )}
     </div>
