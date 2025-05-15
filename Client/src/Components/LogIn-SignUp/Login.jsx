@@ -21,7 +21,7 @@ const Login = ({ onToggleForm }) => {
       .then((result) => {
         if (result.data.success && role === "Admin") {
           localStorage.setItem("token", result.data.token);
-          toast.success("Login successful!");
+          // toast.success("Login successful!");
           navigate("/Dashboard");
         } else {
           toast.error(result.data.message || "Login failed");

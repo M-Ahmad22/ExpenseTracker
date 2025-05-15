@@ -10,8 +10,8 @@ const depositModel = require("./Models/Deposit");
 const app = express();
 app.use(
   cors({
-    // origin: process.env.FRONTEND_URL,
-    origin: "https://expensetracker-clientside.vercel.app",
+    origin: process.env.FRONTEND_URL,
+    // origin: "https://expensetracker-clientside.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
@@ -167,9 +167,104 @@ app.get("/withdraw", async (req, res) => {
     res.status(500).json({ success: false, message: "Server error" });
   }
 });
+// Delete withdraw by ID
+app.delete("/withdraw/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = await withdrawModel.findByIdAndDelete(id);
+    if (!deleted) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Withdraw not found" });
+    }
+    res.json({ success: true, message: "Withdraw deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting withdraw:", error);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
 
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-//   console.log(`server is running on port ${PORT}`);
-// });
+// Edit/Update withdraw by ID
+app.put("/withdraw/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { Amount, Reason, date } = req.body;
+    if (!Amount || !Reason || !date) {
+      return res
+        .status(400)
+        .json({ success: false, message: "All fields are required" });
+    }
+    const updatedWithdraw = await withdrawModel.findByIdAndUpdate(
+      id,
+      { Amount, Reason, date: new Date(date) },
+      { new: true }
+    );
+    if (!updatedWithdraw) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Withdraw not found" });
+    }
+    res.json({
+      success: true,
+      message: "Withdraw updated successfully",
+      withdraw: updatedWithdraw,
+    });
+  } catch (error) {
+    console.error("Error updating withdraw:", error);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
+// Update deposit
+app.put("/deposit/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { DepositAmount, DonatorName, date } = req.body;
+    if (!DepositAmount || !DonatorName || !date) {
+      return res
+        .status(400)
+        .json({ success: false, message: "All fields are required" });
+    }
+    const updatedDeposit = await depositModel.findByIdAndUpdate(
+      id,
+      { DepositAmount, DonatorName, date: new Date(date) },
+      { new: true }
+    );
+    if (!updatedDeposit) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Deposit not found" });
+    }
+    res.json({
+      success: true,
+      message: "Deposit updated successfully",
+      deposit: updatedDeposit,
+    });
+  } catch (error) {
+    console.error("Error updating deposit:", error);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
+// Delete deposit
+app.delete("/deposit/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = await depositModel.findByIdAndDelete(id);
+    if (!deleted) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Deposit not found" });
+    }
+    res.json({ success: true, message: "Deposit deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting deposit:", error);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`server is running on port ${PORT}`);
+});
 module.exports = app;

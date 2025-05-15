@@ -323,45 +323,118 @@
 @media (max-width: 600px) {
   .generate-report-container,
   .generate-report-page-container {
+    /* height: 90vh; */
     width: 98vw;
     max-width: 98vw;
-    padding: 12px;
+    /* padding: 12px; */
     border-radius: 0;
     box-shadow: none;
-    margin: 0;
+    margin: 0px 10px;
     min-height: unset;
+    max-height: 85vh !important;
   }
-
   .tables {
     gap: 10px;
   }
-
+  .generate-report-container h2,
+  .generate-report-page-container h2 {
+    font-size: 1rem;
+  }
   .expenses-table,
   .donations-table {
+    /* background-color: #007bff; */
+    /* height: 100px !important; */
+    max-height: 250px !important;
     padding: 8px 6px;
+  }
+  .expenses-table h3,
+  .donations-table h3 {
+    font-size: 0.9rem;
+  }
+  .month-selection {
+    margin: 0px 0px 0px 0px;
   }
 
   .expenses-table .donation-table,
   .donations-table .donation-table {
-    max-height: none;
+    max-height: 200px !important;
+  }
+  .table-wrapper {
+    height: 200px;
   }
 }
 
 /* Smaller font sizes and button adjustments */
 @media (max-width: 480px) {
+  .generate-report-container,
+  .generate-report-page-container {
+    /* height: 90vh; */
+    width: 98vw;
+    max-width: 98vw;
+    /* padding: 12px; */
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0px 10px;
+    min-height: unset;
+    max-height: 85vh !important;
+  }
+  .tables {
+    gap: 10px;
+  }
   .generate-report-container h2,
   .generate-report-page-container h2 {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
-
-  .month-selection label,
-  .month-selection input[type="month"] {
+  .expenses-table,
+  .donations-table {
+    /* height: 100px !important; */
+    max-height: 280px !important;
+    padding: 8px 6px;
+  }
+  .expenses-table h3,
+  .donations-table h3 {
     font-size: 0.9rem;
   }
+  .month-selection {
+    margin: 0px 0px 0px 0px;
+  }
 
+  .expenses-table .donation-table,
+  .donations-table .donation-table {
+    max-height: 200px !important;
+  }
+
+  /* Actions */
+  .report-actions {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0px 0px 0px 0px;
+  }
   .report-actions button {
-    font-size: 0.9rem;
-    padding: 8px 14px;
+    padding: 6px 12px;
+    font-size: 0.7rem !important;
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    /* margin-top: 10px; */
+    width: 70%;
+    margin-bottom: 20px;
+    margin: 20px 6px;
+  }
+  .report-actions button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 9px 22px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .report-actions button:hover {
+    background: #0056b3;
   }
 }
 

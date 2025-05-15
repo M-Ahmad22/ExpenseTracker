@@ -28,7 +28,7 @@ const Signup = ({ onSignupSuccess }) => {
         console.log(result);
         if (result.data.success) {
           console.log("API URL:", import.meta.env.VITE_API_URL);
-          toast.success("User registered successfully!");
+          // toast.success("User registered successfully!");
           if (onSignupSuccess) onSignupSuccess();
         } else {
           toast.error(result.data.message || "Registration failed");

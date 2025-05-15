@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Home from "./Components/Home/Home";
 import Login from "./Components/LogIn-SignUp/Login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -15,8 +15,16 @@ import ProtectedRoute from "./Components/ProtectedRoutes/ProtectedRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import ToastTest from "./Components/ToastTest";
+import axios from "axios";
+
 import "./App.css";
 const App = () => {
+  // Set up Axios defaults
+  useEffect(() => {
+    axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+    axios.defaults.withCredentials = true;
+    console.log("Axios defaults set to:", axios.defaults.baseURL);
+  }, []);
   return (
     <div>
       <>

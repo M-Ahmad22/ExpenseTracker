@@ -131,11 +131,11 @@
     gap: 15px;
   }
   .formCon {
+    height: 55vh !important;
     width: 100%;
-    height: auto;
+    /* height: auto; */
     padding: 20px 10px;
     border-radius: 0;
-
     backdrop-filter: blur(2px) saturate(169%);
     -webkit-backdrop-filter: blur(25px) saturate(169%);
     background-color: rgba(199, 197, 196, 0.75);
@@ -144,8 +144,11 @@
     margin-top: 140px;
   }
   .textCon h1 {
-    font-size: 38px;
-    margin-bottom: 120px;
+    font-size: 30px;
+    margin-bottom: 190px;
+  }
+  .signupLoginLink {
+    padding-bottom: 30px;
   }
 }
 

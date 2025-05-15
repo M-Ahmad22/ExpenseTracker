@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Withdraw.css";
@@ -7,14 +7,26 @@ import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Withdraw = ({ isOpen, onClose }) => {
+const Withdraw = ({ isOpen, onClose, expenseToEdit = null, onSave }) => {
   const API_URL = import.meta.env.VITE_API_URL;
-
   const navigate = useNavigate();
 
   const [WithdrawDate, setWithdrawDate] = useState(new Date());
   const [amount, setAmount] = useState("");
   const [Reason, setReason] = useState("");
+
+  // Prefill form if editing
+  useEffect(() => {
+    if (expenseToEdit) {
+      setAmount(expenseToEdit.Amount);
+      setReason(expenseToEdit.Reason);
+      setWithdrawDate(new Date(expenseToEdit.date));
+    } else {
+      setAmount("");
+      setReason("");
+      setWithdrawDate(new Date());
+    }
+  }, [expenseToEdit]);
 
   if (typeof isOpen === "boolean") {
     if (!isOpen) return null;
@@ -32,18 +44,36 @@ const Withdraw = ({ isOpen, onClose }) => {
       };
 
       try {
-        const response = await fetch(`${API_URL}/withdraw`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(withdrawData),
-        });
+        let response;
+        if (expenseToEdit) {
+          // Edit existing withdraw - PUT request
+          response = await fetch(`${API_URL}/withdraw/${expenseToEdit._id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(withdrawData),
+          });
+        } else {
+          // Add new withdraw - POST request
+          response = await fetch(`${API_URL}/withdraw`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(withdrawData),
+          });
+        }
 
         const result = await response.json();
 
         if (result.success) {
-          toast.success("Withdraw saved successfully!");
+          toast.success(
+            expenseToEdit
+              ? "Withdraw updated successfully!"
+              : "Withdraw saved successfully!"
+          );
+          if (onSave) onSave(result.withdraw); // Notify parent of update
           onClose();
         } else {
           toast.error(
@@ -54,16 +84,15 @@ const Withdraw = ({ isOpen, onClose }) => {
         console.error("Withdraw submit error:", error);
         toast.error("Failed to submit withdraw. Please try again.");
       }
-      onClose();
     };
 
     return (
       <>
         <ToastContainer position="bottom-right" autoClose={3000} />
-        <div className="modal-overlay">
-          <div className="modal-content">
+        <div className="modal-overlay" onClick={onClose}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h2>Withdraw Amount</h2>
+              <h2>{expenseToEdit ? "Edit Withdraw" : "Withdraw Amount"}</h2>
               <button className="close-btn" onClick={onClose}>
                 X
               </button>
@@ -96,7 +125,7 @@ const Withdraw = ({ isOpen, onClose }) => {
             </div>
             <div className="modal-footer">
               <button className="submit-btn" onClick={handleSubmit}>
-                Submit
+                {expenseToEdit ? "Save Changes" : "Submit"}
               </button>
               <button className="cancel-btn" onClick={onClose}>
                 Cancel
@@ -108,6 +137,7 @@ const Withdraw = ({ isOpen, onClose }) => {
     );
   }
 
+  // Page mode submit (unchanged)
   const handleSubmit = async () => {
     if (!amount || !Reason) {
       toast.error("Please fill all fields");
