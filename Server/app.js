@@ -11,9 +11,11 @@ const app = express();
 
 app.use(
   cors({
-    // origin: process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL,
 
-    origin: "https://fintrackx.vercel.app",
+    // origin: "https://fintrackx.vercel.app",
+
+    origin: "https://expensetracker-clientside.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
